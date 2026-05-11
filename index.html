@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>秋水桥梁 · 客户端下载</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0b0f14;
+      --card: #11161d;
+      --border: rgba(148,163,184,0.12);
+      --accent: #22c55e;
+      --accent-soft: rgba(34,197,94,0.12);
+      --text: #e8eef5;
+      --muted: #64748b;
+      --secondary: #9ca8b8;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(34,197,94,0.08), transparent 60%);
+      pointer-events: none;
+    }
+    .container { width: 100%; max-width: 860px; padding: 60px 24px 80px; position: relative; }
+    .hero { text-align: center; margin-bottom: 56px; }
+    .logo {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 22px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 700; color: #0b0f14;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(34,197,94,0.3);
+    }
+    h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .subtitle { color: var(--secondary); font-size: 16px; line-height: 1.6; }
+    .version-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      border: 1px solid rgba(34,197,94,0.3);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .platforms { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 40px; }
+    .platform-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .platform-card:hover { border-color: rgba(34,197,94,0.4); transform: translateY(-2px); }
+    .platform-icon { font-size: 36px; margin-bottom: 12px; }
+    .platform-name { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+    .platform-desc { color: var(--secondary); font-size: 13px; margin-bottom: 16px; line-height: 1.5; }
+    .download-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%;
+      background: var(--accent);
+      color: #0b0f14;
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .download-btn:hover { background: #16a34a; box-shadow: 0 4px 16px rgba(34,197,94,0.35); }
+    .download-btn.secondary {
+      background: rgba(148,163,184,0.08);
+      color: var(--secondary);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .download-btn.secondary:hover { background: rgba(148,163,184,0.15); color: var(--text); }
+    .download-btn.disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+    .section-title {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .notes {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .notes h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+    .notes ul { list-style: none; }
+    .notes li {
+      padding: 6px 0;
+      color: var(--secondary);
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex; gap: 10px;
+    }
+    .notes li:last-child { border-bottom: none; }
+    .notes li::before { content: '✓'; color: var(--accent); flex-shrink: 0; }
+    .android-note {
+      background: rgba(251,191,36,0.08);
+      border: 1px solid rgba(251,191,36,0.2);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #fbbf24;
+      margin-top: 12px;
+    }
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      width: 100%;
+    }
+    .loading { color: var(--muted); font-size: 13px; }
+    @media (max-width: 600px) {
+      h1 { font-size: 28px; }
+      .platforms { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="logo">秋</div>
+      <h1>秋水桥梁</h1>
+      <p class="subtitle">安全、快速的代理客户端<br>支持 Windows · macOS · Android</p>
+      <div class="version-badge" id="version-badge">加载中…</div>
+    </div>
+
+    <div class="section-title">选择你的平台</div>
+    <div class="platforms">
+      <!-- Windows -->
+      <div class="platform-card">
+        <div class="platform-icon">🪟</div>
+        <div class="platform-name">Windows</div>
+        <div class="platform-desc">Windows 10 / 11 (64位)<br>NSIS 安装包，一键安装</div>
+        <a id="dl-win" href="#" class="download-btn disabled">
+          ⬇ 下载 Windows 版
+        </a>
+        <div id="dl-win-size" style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px"></div>
+      </div>
+
+      <!-- macOS -->
+      <div class="platform-card">
+        <div class="platform-icon">🍎</div>
+        <div class="platform-name">macOS</div>
+        <div class="platform-desc">macOS 11+ (Intel / Apple Silicon)<br>ZIP 压缩包，解压即用</div>
+        <a id="dl-mac-arm" href="#" class="download-btn disabled">
+          ⬇ Apple Silicon (M1/M2/M3)
+        </a>
+        <a id="dl-mac-x64" href="#" class="download-btn secondary disabled" style="margin-top:8px">
+          ⬇ Intel (x64)
+        </a>
+        <div class="android-note" style="background:rgba(148,163,184,0.06);border-color:var(--border);color:var(--secondary);margin-top:10px">
+          💡 首次打开提示"已损坏"：在终端执行<br>
+          <code style="color:var(--accent)">xattr -c /Applications/秋水桥梁.app</code>
+        </div>
+      </div>
+
+      <!-- Android -->
+      <div class="platform-card">
+        <div class="platform-icon">🤖</div>
+        <div class="platform-name">Android</div>
+        <div class="platform-desc">Android 7.0+ (arm64/x64)<br>内置 sing-box 内核，一键开代理</div>
+        <a id="dl-android" href="#" class="download-btn disabled">
+          ⬇ 下载 Android APK
+        </a>
+        <div id="dl-android-size" style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px"></div>
+        <div class="android-note">
+          ⚠️ 安装时需允许"未知来源"应用
+        </div>
+      </div>
+    </div>
+
+    <!-- 更新说明 -->
+    <div class="notes">
+      <h3>📋 最新版本说明</h3>
+      <ul id="release-notes">
+        <li>加载中…</li>
+      </ul>
+    </div>
+
+    <!-- 使用说明 -->
+    <div class="notes">
+      <h3>🚀 快速开始</h3>
+      <ul>
+        <li>安装客户端后，使用管理员提供的账号密码登录</li>
+        <li>登录后可看到分配给你的节点列表</li>
+        <li>点击节点，再点「开启代理」即可上网</li>
+        <li>如有激活码，在设置页面输入可解锁更多节点</li>
+        <li>Android 端支持一键复制节点链接到 v2rayNG / NekoBox</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="footer">
+    秋水桥梁 · 仅供授权用户使用 · <span id="footer-version"></span>
+  </footer>
+
+  <script>
+    const REPO = 'Lxx0407/qiushui-bridge-Private';
+    const API = `https://api.github.com/repos/${REPO}/releases/latest`;
+
+    async function loadRelease() {
+      try {
+        const res = await fetch(API);
+        if (!res.ok) throw new Error('Failed to fetch');
+        const data = await res.json();
+        const version = data.tag_name || 'v?';
+        document.getElementById('version-badge').textContent = `最新版本 ${version}`;
+        document.getElementById('footer-version').textContent = version;
+
+        // 解析 assets
+        const assets = data.assets || [];
+        const find = (pattern) => assets.find((a) => pattern.test(a.name));
+        const fmtSize = (bytes) => bytes ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : '';
+
+        const win = find(/Setup.*\.exe$/i);
+        const macArm = find(/arm64.*mac\.zip$|arm64-mac\.zip$/i);
+        const macX64 = find(/(?<!arm64)-mac\.zip$/i);
+        const android = find(/\.apk$/i);
+
+        if (win) {
+          const el = document.getElementById('dl-win');
+          el.href = win.browser_download_url;
+          el.textContent = `⬇ 下载 Windows 版`;
+          el.classList.remove('disabled');
+          document.getElementById('dl-win-size').textContent = fmtSize(win.size);
+        }
+        if (macArm) {
+          const el = document.getElementById('dl-mac-arm');
+          el.href = macArm.browser_download_url;
+          el.classList.remove('disabled');
+        }
+        if (macX64) {
+          const el = document.getElementById('dl-mac-x64');
+          el.href = macX64.browser_download_url;
+          el.classList.remove('disabled');
+        }
+        if (android) {
+          const el = document.getElementById('dl-android');
+          el.href = android.browser_download_url;
+          el.textContent = `⬇ 下载 Android APK`;
+          el.classList.remove('disabled');
+          document.getElementById('dl-android-size').textContent = fmtSize(android.size);
+        }
+
+        // 更新说明
+        const body = data.body || '';
+        const lines = body.split('\n').filter((l) => l.trim().startsWith('-') || l.trim().startsWith('*') || l.trim().startsWith('✅') || l.trim().startsWith('•'));
+        const notesEl = document.getElementById('release-notes');
+        if (lines.length > 0) {
+          notesEl.innerHTML = lines.slice(0, 8).map((l) =>
+            `<li>${l.replace(/^[-*•✅]\s*/, '')}</li>`
+          ).join('');
+        } else {
+          notesEl.innerHTML = `<li>版本 ${version} 已发布，包含功能更新和 bug 修复</li>`;
+        }
+      } catch (e) {
+        document.getElementById('version-badge').textContent = '获取版本信息失败';
+        document.getElementById('release-notes').innerHTML = '<li>无法加载更新说明，请稍后刷新</li>';
+      }
+    }
+
+    loadRelease();
+  </script>
+</body>
+</html>
