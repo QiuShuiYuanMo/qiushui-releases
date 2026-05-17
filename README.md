@@ -4,7 +4,7 @@
 
 ## 下载地址
 
-👉 **[点击这里下载](https://lxx0407.github.io/qiushui-releases/)**
+👉 **[点击这里下载](https://QiuShuiYuanMo.github.io/qiushui-releases/)**
 
 ## 支持平台
 
