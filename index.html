@@ -219,6 +219,37 @@
     const REPO = 'QiuShuiYuanMo/qiushui-releases';
     const API = `https://api.github.com/repos/${REPO}/releases/latest`;
 
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function looksCorruptedText(text) {
+      if (!text) return false;
+      const suspiciousFragments = ['�', '鈥', '馃', '绉', '鍔', '鏈€', '涓嬭浇'];
+      if (suspiciousFragments.some((fragment) => text.includes(fragment))) return true;
+      const questionCount = (text.match(/\?/g) || []).length;
+      return questionCount >= 4;
+    }
+
+    function buildFallbackNotes(version, assets) {
+      const hasAndroid = assets.some((asset) => /\.apk$/i.test(asset.name));
+      const hasMac = assets.some((asset) => /mac\.zip$/i.test(asset.name));
+      const notes = [
+        `${version} 已发布，包含稳定性优化与更新体验改进`,
+        '优化 sing-box 弱网稳定性，降低 upload/download closed 抖动',
+        '刷新分流规则后会立即重载当前代理配置',
+        '设置页检查更新支持直接展示下载链接与一键下载',
+      ];
+      if (hasAndroid) notes.push('Android 安装包已同步到当前下载页');
+      if (hasMac) notes.push('macOS 安装包已同步到当前下载页');
+      return notes;
+    }
+
     async function loadRelease() {
       try {
         const res = await fetch(API);
@@ -265,11 +296,19 @@
 
         // 更新说明
         const body = data.body || '';
-        const lines = body.split('\n').filter((l) => l.trim().startsWith('-') || l.trim().startsWith('*') || l.trim().startsWith('✅') || l.trim().startsWith('•'));
+        const extractedLines = body.split('\n')
+          .filter((l) => l.trim().startsWith('-') || l.trim().startsWith('*') || l.trim().startsWith('✅') || l.trim().startsWith('•'))
+          .map((l) => l.replace(/^[-*•✅]\s*/, '').trim())
+          .filter(Boolean);
         const notesEl = document.getElementById('release-notes');
-        if (lines.length > 0) {
-          notesEl.innerHTML = lines.slice(0, 8).map((l) =>
-            `<li>${l.replace(/^[-*•✅]\s*/, '')}</li>`
+        const useFallback = looksCorruptedText(data.name || '') || looksCorruptedText(body) || extractedLines.some(looksCorruptedText);
+        const finalLines = (!useFallback && extractedLines.length > 0)
+          ? extractedLines.slice(0, 8)
+          : buildFallbackNotes(version, assets);
+
+        if (finalLines.length > 0) {
+          notesEl.innerHTML = finalLines.map((line) =>
+            `<li>${escapeHtml(line)}</li>`
           ).join('');
         } else {
           notesEl.innerHTML = `<li>版本 ${version} 已发布，包含功能更新和 bug 修复</li>`;
