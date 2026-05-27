@@ -216,8 +216,28 @@
   </footer>
 
   <script>
-    const REPO = 'QiuShuiYuanMo/qiushui-releases';
-    const API = `https://api.github.com/repos/${REPO}/releases/latest`;
+    const STATIC_RELEASE = {
+      tag_name: 'v1.2.1',
+      body: [
+        '- 主页面新增隐私加密模式：开启后下次连接强制全局加密、阻止 QUIC 并启用弱网保活。',
+        '- 连接中不可热切换隐私加密模式，关闭代理后可调整。',
+        '- 修复 Windows 更新安装包可能无法接管旧客户端退出的问题。',
+        '- 修复 Android 安装器和通知栏图标仍显示旧图的问题。',
+        '- 优化 Android VPN 的 IPv6 接管和快速回落，减少 Google 探针超时和开代理后不可用。'
+      ].join('\n'),
+      assets: [
+        {
+          name: 'Setup.1.2.1.exe',
+          size: 90691892,
+          browser_download_url: 'https://api.sengyuan.cc.cd/downloads/v1.2.1/Setup.1.2.1.exe'
+        },
+        {
+          name: 'qiushui-bridge-1.2.1.apk',
+          size: 148754988,
+          browser_download_url: 'https://api.sengyuan.cc.cd/downloads/v1.2.1/qiushui-bridge-1.2.1.apk'
+        }
+      ]
+    };
 
     function escapeHtml(text) {
       return String(text)
@@ -252,9 +272,7 @@
 
     async function loadRelease() {
       try {
-        const res = await fetch(API);
-        if (!res.ok) throw new Error('Failed to fetch');
-        const data = await res.json();
+        const data = STATIC_RELEASE;
         const version = data.tag_name || 'v?';
         document.getElementById('version-badge').textContent = `最新版本 ${version}`;
         document.getElementById('footer-version').textContent = version;
