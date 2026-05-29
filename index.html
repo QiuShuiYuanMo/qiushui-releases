@@ -217,26 +217,35 @@
 
   <script>
     const STATIC_RELEASE = {
-      tag_name: 'v1.2.2',
-      body: [
-        '- 主页面新增隐私加密模式：开启后下次连接强制全局加密、阻止 QUIC 并启用弱网保活。',
-        '- 连接中不可热切换隐私加密模式，关闭代理后可调整。',
-        '- 修复 Windows 更新安装包可能无法接管旧客户端退出的问题。',
-        '- 修复 Android 安装器和通知栏图标仍显示旧图的问题。',
-        '- 优化 Android VPN 的 IPv6 接管和快速回落，减少 Google 探针超时和开代理后不可用。'
-      ].join('\n'),
-      assets: [
-        {
-          name: 'Setup.1.2.2.exe',
-          size: 90814422,
-          browser_download_url: 'https://api.sengyuan.cc.cd/downloads/v1.2.2/Setup.1.2.2.exe'
-        },
-        {
-          name: 'qiushui-bridge-1.2.2.apk',
-          size: 149240864,
-          browser_download_url: 'https://api.sengyuan.cc.cd/downloads/v1.2.2/qiushui-bridge-1.2.2.apk'
-        }
-      ]
+          "tag_name": "v1.2.4",
+          "name": "Qiushui Bridge v1.2.4",
+          "body": "- ?? Android VPN DNS ??????????????????????????
+- ?? Windows / Android / macOS ? sing-box 1.13 ???????
+- ??????????????????????????????
+- ?? v1.2.3 ????????????????? UI ???
+- ?? Windows?Android?macOS Intel?macOS Apple Silicon ????????",
+          "assets": [
+                {
+                      "name": "Setup.1.2.4.exe",
+                      "size": 90814795,
+                      "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.4/Setup.1.2.4.exe"
+                },
+                {
+                      "name": "Setup.1.2.4-mac.zip",
+                      "size": 116269289,
+                      "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.4/Setup.1.2.4-mac.zip"
+                },
+                {
+                      "name": "Setup.1.2.4-arm64-mac.zip",
+                      "size": 109952873,
+                      "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.4/Setup.1.2.4-arm64-mac.zip"
+                },
+                {
+                      "name": "qiushui-bridge-1.2.4.apk",
+                      "size": 149240864,
+                      "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.4/qiushui-bridge-1.2.4.apk"
+                }
+          ]
     };
 
     function escapeHtml(text) {
