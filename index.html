@@ -217,29 +217,19 @@
 
   <script>
     const STATIC_RELEASE = {
-    "tag_name":  "v1.2.4",
-    "name":  "秋水桥梁 v1.2.4",
-    "body":  "- 修复 Android VPN DNS 解析和真实网络接口识别问题，避免连接后域名无法解析。\n- 修复 Windows / Android / macOS 的 sing-box 1.13 配置兼容问题。\n- 修复更新接口版本比较逻辑，避免高版本客户端被旧版本降级提示。\n- 保持 v1.2.3 前端与管理面板风格，不做前端重构或 UI 改版。\n- 补齐 Windows、Android、macOS Intel、macOS Apple Silicon 四个平台下载包。",
+    "body":  "- 修复正常节点被误判为“连通失败”的问题。\n- 修复 Google PKI/证书服务 403/404 被误判为节点异常的问题。\n- 降低 sing-box 普通 TCP 关闭日志触发黄色“节点网络波动”的频率。\n- 修复服务端一次探测失败覆盖历史正常延迟的问题。\n- Android 同步修复证书诊断和负延迟显示。\n- macOS 源码逻辑已修复，本轮暂不提供 macOS 安装包。",
+    "tag_name":  "v1.2.5",
+    "name":  "秋水桥梁 v1.2.5",
     "assets":  [
                    {
-                       "name":  "Setup.1.2.4.exe",
-                       "size":  90814822,
-                       "browser_download_url":  "https://api.sengyuan.cc.cd/downloads/v1.2.4/Setup.1.2.4.exe"
+                       "browser_download_url":  "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.2.5/Setup.1.2.5.exe",
+                       "name":  "Setup.1.2.5.exe",
+                       "size":  90815025
                    },
                    {
-                       "name":  "Setup.1.2.4-mac.zip",
-                       "size":  116268896,
-                       "browser_download_url":  "https://api.sengyuan.cc.cd/downloads/v1.2.4/Setup.1.2.4-mac.zip"
-                   },
-                   {
-                       "name":  "Setup.1.2.4-arm64-mac.zip",
-                       "size":  109952480,
-                       "browser_download_url":  "https://api.sengyuan.cc.cd/downloads/v1.2.4/Setup.1.2.4-arm64-mac.zip"
-                   },
-                   {
-                       "name":  "qiushui-bridge-1.2.4.apk",
-                       "size":  149257248,
-                       "browser_download_url":  "https://api.sengyuan.cc.cd/downloads/v1.2.4/qiushui-bridge-1.2.4.apk"
+                       "browser_download_url":  "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.2.5/qiushui-bridge-1.2.5.apk",
+                       "name":  "qiushui-bridge-1.2.5.apk",
+                       "size":  149240868
                    }
                ]
 };
