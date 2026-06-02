@@ -217,21 +217,15 @@
 
   <script>
     const STATIC_RELEASE = {
-    "body":  "- 修复正常节点被误判为“连通失败”的问题。\n- 修复 Google PKI/证书服务 403/404 被误判为节点异常的问题。\n- 降低 sing-box 普通 TCP 关闭日志触发黄色“节点网络波动”的频率。\n- 修复服务端一次探测失败覆盖历史正常延迟的问题。\n- Android 同步修复证书诊断和负延迟显示。\n- macOS 源码逻辑已修复，本轮暂不提供 macOS 安装包。",
-    "tag_name":  "v1.2.5",
-    "name":  "秋水桥梁 v1.2.5",
-    "assets":  [
-                   {
-                       "browser_download_url":  "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.2.5/Setup.1.2.5.exe",
-                       "name":  "Setup.1.2.5.exe",
-                       "size":  90815025
-                   },
-                   {
-                       "browser_download_url":  "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.2.5/qiushui-bridge-1.2.5.apk",
-                       "name":  "qiushui-bridge-1.2.5.apk",
-                       "size":  149240868
-                   }
-               ]
+      "body": "- 网络稳定性优化：弱网下不再频繁因抖动重启代理，减少“用着用着断十几秒”。\n- 连接成功后延后做连通性诊断，首屏加载不再被抢带宽。\n- 测速更准：服务端改用中位数、坏节点立即标记、陈旧延迟显示“未检测”。\n- 测速失败明确提示“连通失败”，不再“点检测没反应”。\n- Android 优化 IPv6 与多路复用，访问 Google/YouTube 首屏更顺。\n- 修复激活码并发核销、账号禁用后仍可拉取节点等安全问题。\n- 本次新增 macOS 安装包（Intel 与 Apple Silicon）。",
+      "tag_name": "v1.2.6",
+      "name": "秋水桥梁 v1.2.6",
+      "assets": [
+        { "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.6/Setup.1.2.6.exe", "name": "Setup.1.2.6.exe", "size": 90850489 },
+        { "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.6/Setup.1.2.6-arm64-mac.zip", "name": "Setup.1.2.6-arm64-mac.zip", "size": 110068869 },
+        { "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.6/Setup.1.2.6-mac.zip", "name": "Setup.1.2.6-mac.zip", "size": 116385285 },
+        { "browser_download_url": "https://api.sengyuan.cc.cd/downloads/v1.2.6/qiushui-bridge-1.2.6.apk", "name": "qiushui-bridge-1.2.6.apk", "size": 149240868 }
+      ]
 };
 
     function escapeHtml(text) {
@@ -336,3 +330,4 @@
   </script>
 </body>
 </html>
+
