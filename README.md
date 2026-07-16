@@ -1,17 +1,11 @@
-# 秋水桥梁 · 客户端下载
+# 秋水桥梁客户端下载
 
-> 此页面提供秋水桥梁客户端的下载链接。
+当前公开版本：`v1.3.1`
 
-## 下载地址
+- 下载页：https://qiushuiyuanmo.github.io/qiushui-releases/
+- 完整发布：https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.3.1
+- 文件校验：`SHA256SUMS.txt`
 
-👉 **[点击这里下载](https://QiuShuiYuanMo.github.io/qiushui-releases/)**
+支持 Windows 10/11、Android 7.0+、macOS 11+ Intel 与 Apple Silicon。
 
-## 支持平台
-
-- 🪟 Windows 10/11 (64位)
-- 🍎 macOS 11+ (Intel / Apple Silicon)
-- 🤖 Android 7.0+
-
----
-
-*仅供授权用户使用*
+Windows 安装器当前未配置 Authenticode；macOS 包当前未签名、未公证，仅供测试。请只从本仓库或下载页获取文件并核对 SHA256。
