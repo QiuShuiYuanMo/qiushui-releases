@@ -248,14 +248,14 @@
   <script>
     const STATIC_RELEASE = {
       "body": "- Android 15/16 适配，目标 SDK 升级到 36。\n- 修复 Google Play、QUIC、双栈 DNS 与 Google 下载 CDN 路由。\n- Wi-Fi 与蜂窝网络可双向自动切换，VPN 全程保持验证状态。\n- 连接意外中断后使用 Android Keystore 加密状态恢复。\n- 手机端重构为连接、节点、设置三页简约界面。\n- 节点页新增搜索和推荐/已检测筛选。",
-      "tag_name": "v1.3.2",
+      "tag_name": "v1.4.0-candidate",
       "name": "秋水桥梁 Android v1.3.2",
       "assets": [
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.3.1/Setup.1.3.1.exe", "name": "Setup.1.3.1.exe", "size": 115981159 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.3.1/Setup.1.3.1-arm64.dmg", "name": "Setup.1.3.1-arm64.dmg", "size": 142938019 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.3.1/Setup.1.3.1-x64.dmg", "name": "Setup.1.3.1-x64.dmg", "size": 146339196 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.3.2/qiushui-bridge-1.3.2-arm64-v8a.apk", "name": "qiushui-bridge-1.3.2-arm64-v8a.apk", "size": 66382433 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.3.2/qiushui-bridge-1.3.2-universal.apk", "name": "qiushui-bridge-1.3.2-universal.apk", "size": 187541716 }
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/Setup.1.4.0-UNSIGNED.exe", "name": "Setup.1.4.0-UNSIGNED.exe", "size": 115982984 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/Setup.1.4.0-arm64.dmg", "name": "Setup.1.4.0-arm64.dmg", "size": 142930531 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/Setup.1.4.0-x64.dmg", "name": "Setup.1.4.0-x64.dmg", "size": 146340257 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/qiushui-bridge-1.4.0-arm64-v8a-DEBUG.apk", "name": "qiushui-bridge-1.4.0-arm64-v8a-DEBUG.apk", "size": 85111464 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/qiushui-bridge-1.4.0-universal-DEBUG.apk", "name": "qiushui-bridge-1.4.0-universal-DEBUG.apk", "size": 206270747 }
       ]
 };
 
@@ -277,6 +277,14 @@
     }
 
     function buildFallbackNotes(version, assets) {
+      if (version.endsWith('-candidate')) {
+        return [
+          'v1.4.0 candidate test release for Windows, macOS, and Android.',
+          'Windows and macOS packages are unsigned. macOS packages are not notarized.',
+          'Android packages use the Debug certificate and package id cc.qiushui.bridge.debug.',
+          'Verify SHA-256 before installation. Do not use this candidate as a production auto-update release.',
+        ];
+      }
       const hasAndroid = assets.some((asset) => /\.apk$/i.test(asset.name));
       const hasMac = assets.some((asset) => /mac\.zip$/i.test(asset.name));
       const notes = [
@@ -305,8 +313,27 @@
         const win = find(/Setup.*\.exe$/i);
         const macArm = find(/arm64\.dmg$/i);
         const macX64 = find(/x64\.dmg$/i);
-        const android = find(/arm64-v8a\.apk$/i);
-        const androidUniversal = find(/universal\.apk$/i);
+        const android = find(/arm64-v8a-DEBUG\.apk$/i);
+        const androidUniversal = find(/universal-DEBUG\.apk$/i);
+
+        if (version.endsWith('-candidate')) {
+          data.body = [
+            '- v1.4.0 candidate test release for all three platforms.',
+            '- Windows installer is unsigned; verify SHA-256 before use.',
+            '- macOS DMG files are unsigned and not notarized.',
+            '- Android APK files use the Debug certificate and install alongside the production package.',
+          ].join('\n');
+          document.getElementById('version-badge').textContent = 'v1.4.0 Candidate - unsigned test builds';
+          document.getElementById('footer-version').textContent = 'v1.4.0 Candidate - Windows / macOS / Android';
+          document.getElementById('release-page').href = 'https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.4.0-candidate';
+          document.getElementById('checksum-link').href = 'https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/SHA256SUMS-v1.4.0-candidate.txt';
+          document.getElementById('release-page').textContent = 'View v1.4.0 candidate release';
+          document.getElementById('checksum-link').textContent = 'Download v1.4.0 candidate SHA-256 manifest';
+          const warning = document.createElement('div');
+          warning.className = 'notice';
+          warning.textContent = 'Candidate test build: Windows/macOS are unsigned; Android uses a Debug certificate. This is not a production auto-update release.';
+          document.querySelector('.hero').appendChild(warning);
+        }
 
         if (win) {
           const el = document.getElementById('dl-win');
@@ -328,6 +355,7 @@
         if (android) {
           const el = document.getElementById('dl-android');
           el.href = android.browser_download_url;
+          if (version.endsWith('-candidate')) el.textContent = 'Download arm64 Debug APK';
           el.textContent = `下载 arm64 APK`;
           el.classList.remove('disabled');
           document.getElementById('dl-android-size').textContent = fmtSize(android.size);
@@ -335,6 +363,7 @@
         if (androidUniversal) {
           const el = document.getElementById('dl-android-universal');
           el.href = androidUniversal.browser_download_url;
+          if (version.endsWith('-candidate')) el.textContent = 'Download Universal Debug APK';
           el.classList.remove('disabled');
         }
 
