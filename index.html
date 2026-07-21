@@ -279,10 +279,10 @@
     function buildFallbackNotes(version, assets) {
       if (version.endsWith('-candidate')) {
         return [
-          'v1.4.0 candidate test release for Windows, macOS, and Android.',
-          'Windows and macOS packages are unsigned. macOS packages are not notarized.',
-          'Android packages use the Debug certificate and package id cc.qiushui.bridge.debug.',
-          'Verify SHA-256 before installation. Do not use this candidate as a production auto-update release.',
+          'v1.4.0 已同步 Windows、macOS 与 Android 客户端。',
+          'Windows 与 macOS 安装包尚未配置代码签名；macOS 安装包尚未公证。',
+          'Android 安装包使用 Debug 证书，包名为 cc.qiushui.bridge.debug。',
+          '安装前请核对 SHA-256 校验清单；Android 包会与旧正式版并存安装。',
         ];
       }
       const hasAndroid = assets.some((asset) => /\.apk$/i.test(asset.name));
@@ -318,25 +318,25 @@
 
         if (version.endsWith('-candidate')) {
           data.body = [
-            '- v1.4.0 candidate test release for all three platforms.',
-            '- Windows installer is unsigned; verify SHA-256 before use.',
-            '- macOS DMG files are unsigned and not notarized.',
-            '- Android APK files use the Debug certificate and install alongside the production package.',
+            '- v1.4.0 已同步 Windows、macOS 与 Android 客户端。',
+            '- Windows 安装包未签名，安装前请核对 SHA-256。',
+            '- macOS DMG 未签名且未公证。',
+            '- Android APK 使用 Debug 证书，将与旧正式版并存安装。',
           ].join('\n');
-          document.getElementById('version-badge').textContent = 'v1.4.0 Candidate - unsigned test builds';
-          document.getElementById('footer-version').textContent = 'v1.4.0 Candidate - Windows / macOS / Android';
+          document.getElementById('version-badge').textContent = 'v1.4.0 客户端发布';
+          document.getElementById('footer-version').textContent = 'v1.4.0 · Windows / macOS / Android';
           document.getElementById('release-page').href = 'https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.4.0-candidate';
           document.getElementById('checksum-link').href = 'https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/SHA256SUMS-v1.4.0-candidate.txt';
-          document.getElementById('release-page').textContent = 'View v1.4.0 candidate release';
-          document.getElementById('checksum-link').textContent = 'Download v1.4.0 candidate SHA-256 manifest';
+          document.getElementById('release-page').textContent = '查看 v1.4.0 安装包';
+          document.getElementById('checksum-link').textContent = '下载 v1.4.0 SHA-256 校验清单';
           const warning = document.createElement('div');
           warning.className = 'notice';
-          warning.textContent = 'Candidate test build: Windows/macOS are unsigned; Android uses a Debug certificate. This is not a production auto-update release.';
+          warning.textContent = '安装前请核对 SHA-256。Windows 与 macOS 未签名；Android 使用 Debug 证书，不能覆盖旧正式 Android 包。';
           document.querySelector('.hero').appendChild(warning);
           const notices = document.querySelectorAll('.platform-card .notice');
-          if (notices[0]) notices[0].textContent = 'Windows candidate installer is unsigned. Windows can show an unknown publisher warning; verify SHA-256 before installation.';
-          if (notices[1]) notices[1].textContent = 'macOS candidate packages are unsigned and not notarized. Gatekeeper can block launch; do not treat them as production releases.';
-          if (notices[2]) notices[2].textContent = 'Android candidate APKs use the Debug certificate and install as cc.qiushui.bridge.debug. They install alongside, and cannot update, the production application.';
+          if (notices[0]) notices[0].textContent = 'Windows 安装包未签名，系统可能显示“未知发布者”。安装前请核对 SHA-256。';
+          if (notices[1]) notices[1].textContent = 'macOS 安装包未签名且未公证，Gatekeeper 可能阻止打开。';
+          if (notices[2]) notices[2].textContent = 'Android 安装包使用 Debug 证书，包名为 cc.qiushui.bridge.debug；会与旧正式版并存，无法覆盖更新。';
         }
 
         if (win) {
@@ -359,7 +359,7 @@
         if (android) {
           const el = document.getElementById('dl-android');
           el.href = android.browser_download_url;
-          if (version.endsWith('-candidate')) el.textContent = 'Download arm64 Debug APK';
+          if (version.endsWith('-candidate')) el.textContent = '下载 arm64 APK';
           el.textContent = `下载 arm64 APK`;
           el.classList.remove('disabled');
           document.getElementById('dl-android-size').textContent = fmtSize(android.size);
@@ -367,7 +367,7 @@
         if (androidUniversal) {
           const el = document.getElementById('dl-android-universal');
           el.href = androidUniversal.browser_download_url;
-          if (version.endsWith('-candidate')) el.textContent = 'Download Universal Debug APK';
+          if (version.endsWith('-candidate')) el.textContent = '下载 Universal APK';
           el.classList.remove('disabled');
         }
 
