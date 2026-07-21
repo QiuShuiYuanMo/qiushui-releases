@@ -333,6 +333,10 @@
           warning.className = 'notice';
           warning.textContent = 'Candidate test build: Windows/macOS are unsigned; Android uses a Debug certificate. This is not a production auto-update release.';
           document.querySelector('.hero').appendChild(warning);
+          const notices = document.querySelectorAll('.platform-card .notice');
+          if (notices[0]) notices[0].textContent = 'Windows candidate installer is unsigned. Windows can show an unknown publisher warning; verify SHA-256 before installation.';
+          if (notices[1]) notices[1].textContent = 'macOS candidate packages are unsigned and not notarized. Gatekeeper can block launch; do not treat them as production releases.';
+          if (notices[2]) notices[2].textContent = 'Android candidate APKs use the Debug certificate and install as cc.qiushui.bridge.debug. They install alongside, and cannot update, the production application.';
         }
 
         if (win) {
