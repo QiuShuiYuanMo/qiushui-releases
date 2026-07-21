@@ -224,8 +224,8 @@
         <li>加载中…</li>
       </ul>
       <div class="release-links">
-        <a id="release-page" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.3.2">查看 Android v1.3.2 安装包</a>
-        <a id="checksum-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.3.2/SHA256SUMS.txt">下载 SHA256 校验清单</a>
+        <a id="release-page" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.4.5">查看 v1.4.5 安装包</a>
+        <a id="checksum-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/SHA256SUMS.txt">下载 v1.4.5 SHA-256 校验清单</a>
       </div>
     </div>
 
@@ -247,15 +247,14 @@
 
   <script>
     const STATIC_RELEASE = {
-      "body": "- Android 15/16 适配，目标 SDK 升级到 36。\n- 修复 Google Play、QUIC、双栈 DNS 与 Google 下载 CDN 路由。\n- Wi-Fi 与蜂窝网络可双向自动切换，VPN 全程保持验证状态。\n- 连接意外中断后使用 Android Keystore 加密状态恢复。\n- 手机端重构为连接、节点、设置三页简约界面。\n- 节点页新增搜索和推荐/已检测筛选。",
-      "tag_name": "v1.4.0-candidate",
-      "name": "秋水桥梁 Android v1.3.2",
+      "body": "- Windows、macOS 与 Android 客户端同步升级至 v1.4.5。\n- 修复远端连接正常关闭被误判为节点不稳定的问题。\n- 仅在真实代理数据面连续探测失败时才自动恢复连接。\n- 超级管理员默认可使用全部已启用节点，后台可授予用户全部节点权限。\n- 管理后台优化节点权限展示与全节点授权操作。",
+      "tag_name": "v1.4.5",
+      "name": "秋水桥梁 v1.4.5",
       "assets": [
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/Setup.1.4.0-UNSIGNED.exe", "name": "Setup.1.4.0-UNSIGNED.exe", "size": 115982984 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/Setup.1.4.0-arm64.dmg", "name": "Setup.1.4.0-arm64.dmg", "size": 142930531 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/Setup.1.4.0-x64.dmg", "name": "Setup.1.4.0-x64.dmg", "size": 146340257 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/qiushui-bridge-1.4.0-arm64-v8a-DEBUG.apk", "name": "qiushui-bridge-1.4.0-arm64-v8a-DEBUG.apk", "size": 85111464 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.0-candidate/qiushui-bridge-1.4.0-universal-DEBUG.apk", "name": "qiushui-bridge-1.4.0-universal-DEBUG.apk", "size": 206270747 }
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/Setup.1.4.5.exe", "name": "Setup.1.4.5.exe", "size": 115983023 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/Setup.1.4.5-arm64.dmg", "name": "Setup.1.4.5-arm64.dmg", "size": 142930651 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/Setup.1.4.5-x64.dmg", "name": "Setup.1.4.5-x64.dmg", "size": 146340414 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/qiushui-bridge-1.4.5-universal.apk", "name": "qiushui-bridge-1.4.5-universal.apk", "size": 187541712 }
       ]
 };
 
@@ -302,8 +301,8 @@
       try {
         const data = STATIC_RELEASE;
         const version = data.tag_name || 'v?';
-        document.getElementById('version-badge').textContent = `Android ${version} · 桌面 v1.3.1`;
-        document.getElementById('footer-version').textContent = `Android ${version} / 桌面 v1.3.1`;
+        document.getElementById('version-badge').textContent = `${version} 客户端发布`;
+        document.getElementById('footer-version').textContent = `${version} · Windows / macOS / Android`;
 
         // 解析 assets
         const assets = data.assets || [];
@@ -313,8 +312,8 @@
         const win = find(/Setup.*\.exe$/i);
         const macArm = find(/arm64\.dmg$/i);
         const macX64 = find(/x64\.dmg$/i);
-        const android = find(/arm64-v8a-DEBUG\.apk$/i);
-        const androidUniversal = find(/universal-DEBUG\.apk$/i);
+        const android = find(/arm64-v8a.*\.apk$/i);
+        const androidUniversal = find(/universal.*\.apk$/i);
 
         if (version.endsWith('-candidate')) {
           data.body = [
@@ -369,6 +368,13 @@
           el.href = androidUniversal.browser_download_url;
           if (version.endsWith('-candidate')) el.textContent = '下载 Universal APK';
           el.classList.remove('disabled');
+          if (!android) {
+            const primary = document.getElementById('dl-android');
+            primary.href = androidUniversal.browser_download_url;
+            primary.textContent = '下载 Android APK';
+            primary.classList.remove('disabled');
+            document.getElementById('dl-android-size').textContent = fmtSize(androidUniversal.size);
+          }
         }
 
         // 更新说明
