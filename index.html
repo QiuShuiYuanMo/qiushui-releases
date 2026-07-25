@@ -195,7 +195,7 @@
           下载 Intel DMG
         </a>
         <div class="notice">
-          当前 macOS 包未签名、未公证，仅供测试。Gatekeeper 可能阻止打开；正式用户请等待 Developer ID 签名版本。
+          当前 macOS 包未签名、未公证。Gatekeeper 可能阻止首次打开，需在“系统设置 → 隐私与安全性”中确认。
         </div>
       </div>
 
@@ -203,7 +203,7 @@
       <div class="platform-card">
         <div class="platform-icon">ANDROID</div>
         <div class="platform-name">Android</div>
-        <div class="platform-desc">Android 7.0+ (arm64/x64)<br>内置 sing-box 内核，一键开代理</div>
+        <div class="platform-desc">Android 7.0+ (arm64/x64)<br>多内核策略，一键开启代理</div>
         <a id="dl-android" href="#" class="download-btn disabled">
           下载 arm64 APK
         </a>
@@ -212,7 +212,7 @@
         </a>
         <div id="dl-android-size" style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px"></div>
         <div class="notice">
-          从 1.2.6 首次升级时需先卸载旧 Debug 证书版本。卸载前请确认账号信息；1.3.1 之后可使用同一正式证书覆盖升级。
+          v1.4.6 沿用线上 v1.4.5 的同一签名证书，可直接覆盖升级。后续版本也必须继续使用该证书。
         </div>
       </div>
     </div>
@@ -224,8 +224,8 @@
         <li>加载中…</li>
       </ul>
       <div class="release-links">
-        <a id="release-page" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.4.5">查看 v1.4.5 安装包</a>
-        <a id="checksum-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/SHA256SUMS.txt">下载 v1.4.5 SHA-256 校验清单</a>
+        <a id="release-page" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.4.6">查看 v1.4.6 安装包</a>
+        <a id="checksum-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.6/SHA256SUMS-1.4.6.txt">下载 v1.4.6 SHA-256 校验清单</a>
       </div>
     </div>
 
@@ -247,14 +247,14 @@
 
   <script>
     const STATIC_RELEASE = {
-      "body": "- Windows、macOS 与 Android 客户端同步升级至 v1.4.5。\n- 修复远端连接正常关闭被误判为节点不稳定的问题。\n- 仅在真实代理数据面连续探测失败时才自动恢复连接。\n- 超级管理员默认可使用全部已启用节点，后台可授予用户全部节点权限。\n- 管理后台优化节点权限展示与全节点授权操作。",
-      "tag_name": "v1.4.5",
-      "name": "秋水桥梁 v1.4.5",
+      "body": "- Windows、macOS 与 Android 客户端同步升级至 v1.4.6。\n- 新增 sing-box、Xray、Hysteria2 多内核选择与健康状态展示。\n- 自动切换节点默认关闭，只有本机用户主动开启后才会生效。\n- 优化弱网恢复、进程清理和后台配置同步稳定性。\n- 后台升级至 v1.5.0，新增内核发布、四平台发布集与设备状态能力。",
+      "tag_name": "v1.4.6",
+      "name": "秋水桥梁 v1.4.6",
       "assets": [
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/Setup.1.4.5.exe", "name": "Setup.1.4.5.exe", "size": 115983023 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/Setup.1.4.5-arm64.dmg", "name": "Setup.1.4.5-arm64.dmg", "size": 142930651 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/Setup.1.4.5-x64.dmg", "name": "Setup.1.4.5-x64.dmg", "size": 146340414 },
-        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.5/qiushui-bridge-1.4.5-universal.apk", "name": "qiushui-bridge-1.4.5-universal.apk", "size": 187541712 }
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.6/Setup.1.4.6.exe", "name": "Setup.1.4.6.exe", "size": 131169778 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.6/Setup.1.4.6-arm64.dmg", "name": "Setup.1.4.6-arm64.dmg", "size": 162292877 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.6/Setup.1.4.6-x64.dmg", "name": "Setup.1.4.6-x64.dmg", "size": 167382897 },
+        { "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.6/qiushui-bridge-1.4.6-universal.apk", "name": "qiushui-bridge-1.4.6-universal.apk", "size": 187593775 }
       ]
 };
 
