@@ -212,7 +212,7 @@
         </a>
         <div id="dl-android-size" style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px"></div>
         <div class="notice">
-          v1.4.8 沿用线上 v1.4.5/v1.4.6 的同一签名证书，可直接覆盖升级。后续版本也必须继续使用该证书。
+          v2.0.0 沿用 1.4.8 的正式更新证书，可直接覆盖升级；CI 已固定核验证书 SHA-256 指纹。
         </div>
       </div>
     </div>
@@ -224,8 +224,8 @@
         <li>加载中…</li>
       </ul>
       <div class="release-links">
-        <a id="release-page" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v1.4.8">查看 v1.4.8 安装包</a>
-        <a id="checksum-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.8/SHA256SUMS-1.4.8.txt">下载 v1.4.8 SHA-256 校验清单</a>
+        <a id="release-page" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v2.0.0">查看 v2.0.0 安装包</a>
+        <a id="checksum-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.0.0/SHA256SUMS.txt">下载 v2.0.0 SHA-256 校验清单</a>
       </div>
     </div>
 
@@ -247,33 +247,33 @@
 
   <script>
     const STATIC_RELEASE = {
-  "body": "- 修复 v1.4.8 已登录用户打开客户端全黑的问题。装了 v1.4.8 打开黑屏的，下载本版本覆盖安装即可恢复。\n- 实时流量统计：状态卡显示上下行速率与本次连接用量，可在设置里关闭。\n- 新增连接时长显示，切换节点后重新计时。\n- 节点支持收藏置顶，新增「全部测速」批量检测，带进度且可随时停止。\n- 界面主题新增「跟随系统」，随系统深浅色实时切换。\n- 补齐键盘操作与读屏支持，并尊重系统的「减少动态效果」与「提高对比度」偏好。",
-  "tag_name": "v1.4.8",
-  "name": "秋水桥梁 v1.4.8",
+  "body": "- 修复设置加载完成后 React Hook 数量变化导致的设置面板崩溃。\n- 回归扫描覆盖桌面客户端和两个管理后台，阻止 Hook 出现在提前返回之后。\n- 节点检测继续通过真实代理 HTTPS 请求验证协议、TLS、DNS 和出口可用性；界面延迟使用 TCP RTT。\n- 连接状态卡改为桌面双栏布局，窄窗口自动回落为单栏。\n- 节点详情不再显示 -1 ms，检测失败统一显示“连通失败”。\n- CI 强制校验 Git 标签、桌面版本、lockfile 和 Android 版本一致。\n- 管理员令牌与秋水云令牌启用严格 audience 校验。",
+  "tag_name": "v2.0.0",
+  "name": "秋水桥梁 v2.0.0",
   "assets": [
     {
-      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.8/Setup.1.4.8.exe",
-      "name": "Setup.1.4.8.exe",
-      "size": 128078930
+      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.0.0/Setup.2.0.0.exe",
+      "name": "Setup.2.0.0.exe",
+      "size": 127027045
     },
     {
-      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.8/Setup.1.4.8-arm64.dmg",
-      "name": "Setup.1.4.8-arm64.dmg",
-      "size": 162311064
+      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.0.0/Setup.2.0.0-arm64.dmg",
+      "name": "Setup.2.0.0-arm64.dmg",
+      "size": 162311440
     },
     {
-      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.8/Setup.1.4.8-x64.dmg",
-      "name": "Setup.1.4.8-x64.dmg",
-      "size": 167414216
+      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.0.0/Setup.2.0.0-x64.dmg",
+      "name": "Setup.2.0.0-x64.dmg",
+      "size": 167414482
     },
     {
-      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.8/qiushui-bridge-1.4.8-universal.apk",
-      "name": "qiushui-bridge-1.4.8-universal.apk",
+      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.0.0/qiushui-bridge-2.0.0-universal.apk",
+      "name": "qiushui-bridge-2.0.0-universal.apk",
       "size": 187541712
     },
     {
-      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v1.4.8/qiushui-bridge-1.4.8-arm64-v8a.apk",
-      "name": "qiushui-bridge-1.4.8-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.0.0/qiushui-bridge-2.0.0-arm64-v8a.apk",
+      "name": "qiushui-bridge-2.0.0-arm64-v8a.apk",
       "size": 66382429
     }
   ]
@@ -427,4 +427,3 @@
   </script>
 </body>
 </html>
-
