@@ -15,8 +15,8 @@
       --panel-strong: #13283d;
       --line: rgba(171, 213, 231, .16);
       --text: #edf8ff;
-      --muted: #a9bfd0;
-      --quiet: #7e9aae;
+      --muted: #c2d7e4;
+      --quiet: #9db9ca;
       --mint: #70e2d2;
       --mint-strong: #3ac8b7;
       --blue: #9abaff;
@@ -35,7 +35,7 @@
         radial-gradient(circle at 8% 20%, rgba(68, 205, 188, .12), transparent 28rem),
         var(--bg);
       color: var(--text);
-      font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
     }
 
@@ -67,20 +67,8 @@
     .brand-mark svg { width: 21px; height: 21px; }
     .brand small { display: block; color: var(--quiet); font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 
-    .hero { padding: 62px 0 56px; }
+    .hero { padding: 70px 0 56px; }
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(280px, .72fr); gap: 52px; align-items: end; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-      color: var(--mint);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--mint); }
     h1, h2, p { margin-top: 0; }
     h1 {
       max-width: 760px;
@@ -210,7 +198,6 @@
     <section class="hero shell">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow">Latest stable release · 2.2.0</div>
           <h1>把连接，交给秋水桥梁。</h1>
           <p class="hero-copy">官方客户端下载页。选择你的设备平台，下载经过版本与 SHA256 校验的 v2.2.0 安装包。</p>
           <div class="hero-actions">
