@@ -1,308 +1,225 @@
-﻿<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#091421">
-  <meta name="description" content="秋水桥梁 v2.2.4 官方客户端下载页，提供 Windows、macOS 和 Android 安装包。">
-  <title>秋水桥梁 · v2.2.4 下载</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #091421;
-      --bg-soft: #0d1c2c;
-      --panel: rgba(18, 35, 53, .84);
-      --panel-strong: #13283d;
-      --line: rgba(171, 213, 231, .16);
-      --text: #edf8ff;
-      --muted: #c2d7e4;
-      --quiet: #9db9ca;
-      --mint: #70e2d2;
-      --mint-strong: #3ac8b7;
-      --blue: #9abaff;
-      --warning: #ffd28a;
-      --shadow: 0 22px 70px rgba(0, 0, 0, .28);
-      --radius: 22px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-width: 320px;
-      background:
-        radial-gradient(circle at 85% -10%, rgba(83, 151, 224, .22), transparent 34rem),
-        radial-gradient(circle at 8% 20%, rgba(68, 205, 188, .12), transparent 28rem),
-        var(--bg);
-      color: var(--text);
-      font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-    }
-
-    ::selection { background: rgba(112, 226, 210, .28); color: var(--text); }
-    a { color: inherit; }
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--mint); outline-offset: 4px; }
-
-    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .topbar { padding: 28px 0 18px; }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 750;
-      letter-spacing: -.02em;
-    }
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border: 1px solid rgba(112, 226, 210, .44);
-      border-radius: 13px;
-      background: linear-gradient(145deg, rgba(112, 226, 210, .22), rgba(111, 156, 255, .16));
-      color: var(--mint);
-    }
-    .brand-mark svg { width: 21px; height: 21px; }
-    .brand small { display: block; color: var(--quiet); font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-
-    .hero { padding: 70px 0 56px; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(280px, .72fr); gap: 52px; align-items: end; }
-    h1, h2, p { margin-top: 0; }
-    h1 {
-      max-width: 760px;
-      margin-bottom: 20px;
-      font-size: clamp(2.65rem, 7vw, 5.6rem);
-      line-height: .98;
-      letter-spacing: -.065em;
-      text-wrap: balance;
-    }
-    .hero-copy { max-width: 650px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.24rem); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 48px;
-      padding: 0 18px;
-      border: 1px solid transparent;
-      border-radius: 13px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
-    }
-    .button:hover { transform: translateY(-2px); }
-    .button-primary { background: var(--mint); color: #06221f; box-shadow: 0 12px 30px rgba(58, 200, 183, .18); }
-    .button-primary:hover { background: #94f0e3; }
-    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.035); color: var(--text); }
-    .button-secondary:hover { border-color: rgba(112, 226, 210, .54); background: rgba(112, 226, 210, .08); }
-    .button svg { width: 17px; height: 17px; }
-
-    .release-note {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(150deg, rgba(23, 50, 73, .84), rgba(14, 28, 44, .76));
-      box-shadow: var(--shadow);
-    }
-    .release-note strong { display: block; margin-bottom: 12px; font-size: 1.05rem; }
-    .release-note p { margin-bottom: 16px; color: var(--muted); font-size: .94rem; }
-    .release-note dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; font-size: .88rem; }
-    .release-note dt { color: var(--quiet); }
-    .release-note dd { margin: 0; color: var(--text); font-weight: 700; text-align: right; }
-
-    .section { padding: 20px 0 78px; }
-    .section-heading { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 22px; }
-    h2 { margin-bottom: 0; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.1; letter-spacing: -.04em; }
-    .section-heading p { max-width: 500px; margin-bottom: 0; color: var(--muted); }
-
-    .download-panel { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(14, 29, 45, .75); box-shadow: var(--shadow); }
-    .download-row { display: grid; grid-template-columns: minmax(190px, .9fr) minmax(0, 1.35fr) auto; gap: 24px; align-items: center; padding: 25px 28px; border-bottom: 1px solid var(--line); }
-    .download-row:last-child { border-bottom: 0; }
-    .platform { display: flex; align-items: center; gap: 13px; }
-    .platform-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 13px; background: rgba(112, 226, 210, .11); color: var(--mint); }
-    .platform-icon svg { width: 21px; height: 21px; }
-    .platform strong { display: block; font-size: 1.05rem; }
-    .platform span, .download-meta { color: var(--muted); font-size: .88rem; }
-    .download-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-    .download-meta span { display: inline-flex; align-items: center; gap: 7px; }
-    .download-meta span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--mint-strong); }
-    .download-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
-    .download-actions .button { min-height: 40px; padding: 0 13px; font-size: .88rem; }
-    .download-actions .button-primary { box-shadow: none; }
-    .download-actions .button-muted { border-color: var(--line); color: var(--muted); }
-
-    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
-    .info-block { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(18, 35, 53, .62); }
-    .info-block h3 { margin: 0 0 10px; font-size: 1.08rem; }
-    .info-block p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
-    .info-block.warning { border-color: rgba(255, 210, 138, .28); background: rgba(93, 66, 29, .2); }
-    .info-block.warning h3 { color: var(--warning); }
-
-    .checksums { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(14, 29, 45, .7); }
-    .checksum-scroll { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; min-width: 740px; font-size: .86rem; }
-    th, td { padding: 14px 18px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    th { color: var(--quiet); font-weight: 700; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; }
-    tr:last-child td { border-bottom: 0; }
-    td:first-child { width: 34%; color: var(--text); font-weight: 700; }
-    code { color: #cce6ff; font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; font-size: .78rem; overflow-wrap: anywhere; }
-    .checksum-foot { padding: 16px 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
-    .checksum-foot a { color: var(--blue); text-underline-offset: 3px; }
-
-    footer { padding: 0 0 44px; color: var(--quiet); font-size: .85rem; }
-    footer a { color: var(--muted); text-underline-offset: 3px; }
-    .footer-line { display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
-
-    @media (max-width: 800px) {
-      .shell { width: min(100% - 28px, 680px); }
-      .hero { padding-top: 40px; }
-      .hero-grid, .info-grid { grid-template-columns: 1fr; gap: 24px; }
-      .download-row { grid-template-columns: 1fr; gap: 14px; padding: 22px; }
-      .download-actions { justify-content: flex-start; }
-      .section-heading { display: block; }
-      .section-heading p { margin-top: 10px; }
-      .footer-line { display: block; }
-      .footer-line span { display: block; margin-top: 8px; }
-    }
-
-    @media (max-width: 480px) {
-      .topbar { padding-top: 18px; }
-      h1 { font-size: clamp(2.55rem, 16vw, 4.3rem); }
-      .hero-actions, .hero-actions .button { width: 100%; }
-      .release-note dd { text-align: left; }
-      .release-note dl { grid-template-columns: 1fr; gap: 3px; }
-      .release-note dt { margin-top: 8px; }
-      .download-actions .button { flex: 1 1 145px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>秋水桥梁 · 客户端下载</title>
+<meta name="description" content="秋水桥梁官方下载页：Windows、macOS（Intel / Apple Silicon）、Android 客户端，以及三端源码与 SHA256 校验值。">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="秋水桥梁 · 客户端下载">
+<meta property="og:description" content="Windows / macOS / Android 客户端与三端源码下载，附 SHA256 校验。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f172a'/%3E%3Cpath d='M8 20c4-8 12-8 16 0' stroke='%2322c55e' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+  // 尽早应用主题，避免首屏闪白。
+  (function () {
+    try {
+      var saved = localStorage.getItem('qsb-theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      document.documentElement.dataset.theme = saved || (prefersLight ? 'light' : 'dark');
+    } catch (e) { /* 隐私模式下忽略 */ }
+  })();
+</script>
 </head>
 <body>
-  <header class="topbar shell">
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="秋水桥梁下载首页">
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16.5 12 5l7 11.5"/><path d="M8.2 16.5h7.6M9.8 13.5h4.4M12 5v11.5"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c3.5-7 11.5-7 15 0"/><path d="M6 20h12"/></svg>
       </span>
-      <span>秋水桥梁<small>Official release page</small></span>
+      <span>秋水桥梁</span>
+      <span class="version-pill" id="version-pill" aria-label="当前版本">v2.3.0</span>
     </a>
-  </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-grid">
+    <nav class="header-nav" aria-label="页面导航">
+      <a href="#downloads">下载</a>
+      <a href="#verify">校验</a>
+      <a href="#source">源码</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="切换深浅色主题" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="icon-button" href="https://github.com/QiuShuiYuanMo/qiushui-releases" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看发布仓库">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">官方下载</p>
+      <h1>把连接，交给秋水桥梁。</h1>
+      <p class="lede">
+        三端客户端与三端源码都在这里。每个安装包都提供 SHA256 校验值，Android 使用生产证书签名，
+        Windows 安装包带数字签名防篡改。
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" id="primary-download" href="#downloads">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+          <span id="primary-download-label">选择你的平台</span>
+        </a>
+        <a class="button button-secondary" id="release-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/latest" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          完整 Release
+        </a>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-chip">版本 <strong id="meta-version">v2.3.0</strong></span>
+        <span class="meta-chip">发布 <strong id="meta-date">2026-10-18</strong></span>
+        <span class="meta-chip">平台 <strong>Windows · macOS · Android</strong></span>
+        <span class="meta-chip">源码 <strong>三端公开</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="downloads">
+    <div class="wrap">
+      <div class="section-head">
         <div>
-          <h1>把连接，交给秋水桥梁。</h1>
-          <p class="hero-copy">官方客户端下载页。选择你的设备平台，下载经过版本与 SHA256 校验的 v2.2.4 安装包。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#downloads">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg>
-              选择平台下载
-            </a>
-            <a class="button button-secondary" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v2.2.4" target="_blank" rel="noreferrer">查看完整 Release</a>
-          </div>
-        </div>
-        <aside class="release-note" aria-label="版本信息">
-          <strong>v2.2.4 · 真实代理数据面与连接生命周期修复</strong>
-          <p>Windows、macOS 与 Android 使用同一客户端版本；修复连接节点后仅监听成功就接管代理，导致浏览器全局 ERR_CONNECTION_RESET 的问题；启用代理前增加 CONNECT、TLS、HTTP 数据面验证。</p>
-          <dl>
-            <dt>发布日期</dt><dd>2026-10-16</dd>
-            <dt>主入口</dt><dd>api.qiushuiyuanmo.com</dd>
-            <dt>备用入口</dt><dd>api-direct.qiushuiyuanmo.com</dd>
-          </dl>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section shell" id="downloads">
-      <div class="section-heading">
-        <h2>下载客户端</h2>
-        <p>优先选择与你的系统架构匹配的包。Android 通用包兼容范围最广，macOS 请按 Intel 或 Apple Silicon 选择。</p>
-      </div>
-
-      <div class="download-panel">
-        <div class="download-row">
-          <div class="platform">
-            <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 8h.01M11 8h6"/></svg></span>
-            <div><strong>Windows</strong><span>x64 桌面安装包</span></div>
-          </div>
-          <div class="download-meta"><span>Setup 安装程序</span><span>未签名</span></div>
-          <div class="download-actions"><a class="button button-primary" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.2.4/qiushui-bridge-2.2.4-windows-x64-unsigned.exe">下载 .exe</a></div>
-        </div>
-
-        <div class="download-row">
-          <div class="platform">
-            <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M8.5 7.5h7M9 16.5h6"/><path d="M7.5 4.5 5 2M16.5 4.5 19 2M7 10H4M20 10h-3"/></svg></span>
-            <div><strong>macOS</strong><span>Intel x64 · Apple Silicon arm64</span></div>
-          </div>
-          <div class="download-meta"><span>ZIP 应用包</span><span>未签名、未公证</span></div>
-          <div class="download-actions">
-            <a class="button button-primary" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.2.4/qiushui-bridge-2.2.4-macos-x64-unsigned.zip">Intel x64</a>
-            <a class="button button-secondary" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.2.4/qiushui-bridge-2.2.4-macos-arm64-unsigned.zip">Apple Silicon</a>
-          </div>
-        </div>
-
-        <div class="download-row">
-          <div class="platform">
-            <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 6h4M11 18h2"/></svg></span>
-            <div><strong>Android</strong><span>APK 安装包</span></div>
-          </div>
-          <div class="download-meta"><span>release variant</span><span>debug certificate</span></div>
-          <div class="download-actions">
-            <a class="button button-primary" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.2.4/qiushui-bridge-2.2.4-android-universal-debug.apk">下载 APK</a>
-          </div>
+          <h2>下载客户端</h2>
+          <p>选择与你的设备匹配的版本。不确定时：Windows 用安装包，Android 用通用包，macOS 按芯片选择。</p>
         </div>
       </div>
-
-      <div class="info-grid">
-        <div class="info-block warning">
-          <h3>安装前请注意签名状态</h3>
-          <p>当前 Windows/macOS 包没有生产签名；macOS 也未公证。Android 为 debug certificate，包名是 cc.qiushui.bridge.debug，不能覆盖生产签名包。v2.2.4 修复连接节点后仅监听成功就接管代理，导致浏览器全局 ERR_CONNECTION_RESET 的问题；启用代理前增加 CONNECT、TLS、HTTP 数据面验证。</p>
-        </div>
-        <div class="info-block">
-          <h3>下载后校验文件完整性</h3>
-          <p>请对照下方 SHA256，或下载 <a href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.2.4/SHA256SUMS.txt">SHA256SUMS.txt</a> 后在本机校验。源码不放在公共分发仓；本版本增加 selected core、代理 ownership 和 IPC 启动回归修复。</p>
-        </div>
+      <div class="platform-grid" id="platform-grid">
+        <p class="loading-placeholder">正在加载下载列表…</p>
       </div>
-    </section>
+      <noscript>
+        <p class="notice" style="margin-top:var(--space-4)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+          <span>需要启用 JavaScript 才能看到完整下载列表；也可以直接前往
+            <a href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/latest">GitHub Release</a> 下载。</span>
+        </p>
+      </noscript>
+    </div>
+  </section>
 
-    <section class="section shell" id="checksums">
-      <div class="section-heading">
-        <h2>SHA256 校验</h2>
-        <p>哈希值对应 v2.2.4 Release 中的原始资产；校验时请确认文件名完全一致。Windows/macOS 为 unsigned，Android 为 debug certificate。</p>
+  <section class="section" id="verify">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>SHA256 校验</h2>
+          <p>下载后先校验再安装。哈希发布在文件之外，才能证明你拿到的文件没有被替换。</p>
+        </div>
+        <a class="button button-secondary button-small" id="sums-link" href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/latest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+          下载 SHA256SUMS.txt
+        </a>
       </div>
-      <div class="checksums">
-        <div class="checksum-scroll">
-          <table>
-            <thead><tr><th>文件</th><th>SHA256</th></tr></thead>
-            <tbody>
-              <tr><td>Windows x64 unsigned</td><td><code>3CB555124B2CAAF6586A8DCB1BFE074253B60E0A10147768C0A0758483C08810</code></td></tr>
-              <tr><td>Windows blockmap</td><td><code>15B616307A5329E54A728CFED7FAE551AD9819AB0850F33F7FC51D40596FE62B</code></td></tr>
-              <tr><td>Android universal debug</td><td><code>AEB5FF437D7EA2D1CC85D8AECB1E31D957CD03F05F0AFFE415240C09C0DB5498</code></td></tr>
-              <tr><td>macOS Intel x64 unsigned</td><td><code>E968CE32DF6D0C4438D61DC71F783252C7CD7E12A838CB59227E5BAC8F05356E</code></td></tr>
-              <tr><td>macOS Apple Silicon arm64 unsigned</td><td><code>DA62D8B7D72FF6637CB0B78E50398336D4023E5F35C86D42F6EF6D095E3FBA02</code></td></tr>
+
+      <div class="notice" style="margin-bottom:var(--space-5)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+        <span><strong>为什么哈希不能写进安装包？</strong>
+          文件自身的哈希依赖文件内容，写进去就改变了内容；而且哈希跟着文件一起传播，攻击者改完重算即可。
+          真正有效的是「签名」+「把哈希发布在文件之外」——本页两者都提供。</span>
+      </div>
+
+      <div class="table-shell">
+        <div class="table-scroll">
+          <table class="checksums">
+            <caption id="checksum-caption">全部发布资产的 SHA256（与 SHA256SUMS.txt 一致）</caption>
+            <thead>
+              <tr>
+                <th scope="col">文件</th>
+                <th scope="col">大小</th>
+                <th scope="col">SHA256</th>
+                <th scope="col"><span class="sr-only">操作</span></th>
+              </tr>
+            </thead>
+            <tbody id="checksum-body">
+              <tr><td colspan="4" class="loading-placeholder">正在加载校验值…</td></tr>
             </tbody>
           </table>
         </div>
-        <div class="checksum-foot">完整资产、发布说明与交接信息：<a href="https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v2.2.4" target="_blank" rel="noreferrer">GitHub Release v2.2.4</a></div>
       </div>
-    </section>
-  </main>
-
-  <footer class="shell">
-    <div class="footer-line">
-      <a href="https://github.com/QiuShuiYuanMo/qiushui-releases">QiuShuiYuanMo / qiushui-releases</a>
-      <span>公共分发仓仅提供安装包与校验信息 · v2.2.4</span>
     </div>
-  </footer>
+  </section>
+
+  <section class="section" id="source">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>三端源码</h2>
+          <p>桌面端、Android、服务端的完整源码。源码仓库已公开，也可以直接下载打包好的压缩包。</p>
+        </div>
+        <a class="button button-secondary button-small" href="https://github.com/QiuShuiYuanMo/qiushui-bridge-Private" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          源码仓库
+        </a>
+      </div>
+      <div class="source-grid" id="source-grid">
+        <p class="loading-placeholder">正在加载源码包…</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>常见问题</h2>
+          <p>安装前值得花一分钟了解的事。</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Windows 提示「未知发布者」，是病毒吗？</summary>
+          <p>不是。安装包使用<strong>自签名证书</strong>签名——它没有被公共 CA 背书，所以 Windows 不认识签发者。
+            签名本身仍然有效：任何对文件的改动都会让签名失效。若想消除提示，可把随附的
+            <code>codesign-cert.cer</code> 导入「受信任的根证书颁发机构」。</p>
+        </details>
+        <details>
+          <summary>macOS 打不开，提示「无法验证开发者」怎么办？</summary>
+          <p>macOS 包未签名、未公证。请在「系统设置 → 隐私与安全性」底部选择「仍要打开」，
+            或按住 Control 点击应用图标 → 打开。Apple Silicon 机器请下载 arm64 版本。</p>
+        </details>
+        <details>
+          <summary>Android 该装哪个包？</summary>
+          <p>不确定就用 <code>universal</code> 通用包。追求体积可用 <code>arm64-v8a</code>（近几年的手机基本都是）。
+            <code>armeabi-v7a</code> 面向 32 位旧设备，<code>x86_64</code> 面向模拟器。</p>
+        </details>
+        <details>
+          <summary>怎么校验下载的文件？</summary>
+          <p>Windows：<code>certutil -hashfile 文件名 SHA256</code>；
+            macOS / Linux：<code>shasum -a 256 -c SHA256SUMS.txt</code>。
+            结果应与本页表格或 <code>SHA256SUMS.txt</code> 完全一致。</p>
+        </details>
+        <details>
+          <summary>源码和安装包是同一份代码吗？</summary>
+          <p>是。三端产物由同一版本标签构建，源码包与公开仓库对应同一提交；
+            <code>RELEASE-METADATA</code> 中记录了构建提交与签名指纹。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© 2026 秋水桥梁 · QiushuiBridge</span>
+    <div class="footer-links">
+      <a href="https://github.com/QiuShuiYuanMo/qiushui-releases" target="_blank" rel="noreferrer">发布仓库</a>
+      <a href="https://github.com/QiuShuiYuanMo/qiushui-bridge-Private" target="_blank" rel="noreferrer">源码仓库</a>
+      <a href="https://api.qiushuiyuanmo.com/health" target="_blank" rel="noreferrer">服务状态</a>
+      <a href="https://github.com/QiuShuiYuanMo/qiushui-releases/issues" target="_blank" rel="noreferrer">反馈</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
 </body>
 </html>
-
-
-
