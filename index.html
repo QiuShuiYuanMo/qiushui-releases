@@ -41,7 +41,6 @@
     <nav class="header-nav" aria-label="页面导航">
       <a href="#downloads">下载</a>
       <a href="#verify">校验</a>
-      <a href="#source">源码</a>
       <a href="#faq">常见问题</a>
     </nav>
 
@@ -63,8 +62,8 @@
       <p class="eyebrow">官方下载</p>
       <h1>把连接，交给秋水桥梁。</h1>
       <p class="lede">
-        三端客户端与三端源码都在这里。每个安装包都提供 SHA256 校验值，Android 使用生产证书签名，
-        Windows 安装包带数字签名防篡改。
+        Windows、macOS、Android 三端客户端都在这里。每个安装包都提供 SHA256 校验值，
+        Android 使用生产证书签名，Windows 安装包带数字签名防篡改。
       </p>
 
       <div class="hero-actions">
@@ -82,7 +81,6 @@
         <span class="meta-chip">版本 <strong id="meta-version">v2.3.0</strong></span>
         <span class="meta-chip">发布 <strong id="meta-date">2026-10-18</strong></span>
         <span class="meta-chip">平台 <strong>Windows · macOS · Android</strong></span>
-        <span class="meta-chip">源码 <strong>三端公开</strong></span>
       </div>
     </div>
   </section>
@@ -149,24 +147,6 @@
     </div>
   </section>
 
-  <section class="section" id="source">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>三端源码</h2>
-          <p>桌面端、Android、服务端的完整源码。源码仓库已公开，也可以直接下载打包好的压缩包。</p>
-        </div>
-        <a class="button button-secondary button-small" href="https://github.com/QiuShuiYuanMo/qiushui-bridge-Private" target="_blank" rel="noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
-          源码仓库
-        </a>
-      </div>
-      <div class="source-grid" id="source-grid">
-        <p class="loading-placeholder">正在加载源码包…</p>
-      </div>
-    </div>
-  </section>
-
   <section class="section" id="faq">
     <div class="wrap">
       <div class="section-head">
@@ -198,11 +178,6 @@
             macOS / Linux：<code>shasum -a 256 -c SHA256SUMS.txt</code>。
             结果应与本页表格或 <code>SHA256SUMS.txt</code> 完全一致。</p>
         </details>
-        <details>
-          <summary>源码和安装包是同一份代码吗？</summary>
-          <p>是。三端产物由同一版本标签构建，源码包与公开仓库对应同一提交；
-            <code>RELEASE-METADATA</code> 中记录了构建提交与签名指纹。</p>
-        </details>
       </div>
     </div>
   </section>
@@ -213,7 +188,6 @@
     <span>© 2026 秋水桥梁 · QiushuiBridge</span>
     <div class="footer-links">
       <a href="https://github.com/QiuShuiYuanMo/qiushui-releases" target="_blank" rel="noreferrer">发布仓库</a>
-      <a href="https://github.com/QiuShuiYuanMo/qiushui-bridge-Private" target="_blank" rel="noreferrer">源码仓库</a>
       <a href="https://api.qiushuiyuanmo.com/health" target="_blank" rel="noreferrer">服务状态</a>
       <a href="https://github.com/QiuShuiYuanMo/qiushui-releases/issues" target="_blank" rel="noreferrer">反馈</a>
     </div>

@@ -7,8 +7,8 @@
     {
       "name": "qiushui-bridge-2.3.0-windows-x64-signed.exe",
       "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.3.0/qiushui-bridge-2.3.0-windows-x64-signed.exe",
-      "size": 147884976,
-      "sha256": "78be8d0a77d5f0294fb9275a5b36a7d2a0431bcb5765f6778bf21877b18ea3fb",
+      "size": 149129680,
+      "sha256": "820626f68db0aa1ae980ac1425e17a85394107b1fb8f33629374bec994b653c9",
       "platform": "windows",
       "arch": "x64",
       "kind": "installer",
@@ -125,42 +125,6 @@
       "signed": "release"
     },
     {
-      "name": "qiushui-bridge-2.3.0-desktop-source.zip",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.3.0/qiushui-bridge-2.3.0-desktop-source.zip",
-      "size": 1324683,
-      "sha256": "40ac6e4d9d0880b5f654ae60e345c30bd2c4defcf3bf9727e4dde8bbb633f9fd",
-      "platform": "source",
-      "arch": "any",
-      "kind": "source",
-      "label": "桌面客户端源码",
-      "note": "Electron + React + TypeScript",
-      "signed": null
-    },
-    {
-      "name": "qiushui-bridge-2.3.0-android-source.zip",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.3.0/qiushui-bridge-2.3.0-android-source.zip",
-      "size": 710116,
-      "sha256": "1c0868df923528ad702ab37d3a6c8f127baab0102a89e84950a8ebd27f5efe72",
-      "platform": "source",
-      "arch": "any",
-      "kind": "source",
-      "label": "Android 源码",
-      "note": "Kotlin + Gradle",
-      "signed": null
-    },
-    {
-      "name": "qiushui-bridge-2.3.0-server-source.zip",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.3.0/qiushui-bridge-2.3.0-server-source.zip",
-      "size": 1622548,
-      "sha256": "8f51825ddfc25a20771e4f695525ce273610883dea04cbab275d4f6049b5da55",
-      "platform": "source",
-      "arch": "any",
-      "kind": "source",
-      "label": "服务端源码",
-      "note": "Fastify + Prisma + admin-web",
-      "signed": null
-    },
-    {
       "name": "qiushui-bridge-2.3.0-codesign-cert.cer",
       "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.3.0/qiushui-bridge-2.3.0-codesign-cert.cer",
       "size": 1116,
@@ -175,8 +139,8 @@
     {
       "name": "SHA256SUMS.txt",
       "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.3.0/SHA256SUMS.txt",
-      "size": 1511,
-      "sha256": "34bfe22824fc0fd94a5edea5e97cdef116098b311be5514ac9c5db541632c64f",
+      "size": 1196,
+      "sha256": "46f0695b4f6edcd10c0ba1e41bacc9798f0c152e4f36b1c4104aa4553725fbfb",
       "platform": "other",
       "arch": "any",
       "kind": "checksums",
