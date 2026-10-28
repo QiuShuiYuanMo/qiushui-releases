@@ -1,14 +1,14 @@
 {
-  "version": "2.4.16",
-  "releasedAt": "2026-10-27",
+  "version": "2.4.18",
+  "releasedAt": "2026-10-28",
   "repo": "QiuShuiYuanMo/qiushui-releases",
-  "releaseUrl": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v2.4.16",
+  "releaseUrl": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/tag/v2.4.18",
   "assets": [
     {
-      "name": "qiushui-bridge-2.4.16-windows-x64-signed.exe",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-windows-x64-signed.exe",
-      "size": 149160336,
-      "sha256": "98da049722c5867a33a41e293b856f97ca660063621af214f9376f1dfa96ea8a",
+      "name": "qiushui-bridge-2.4.18-windows-x64-signed.exe",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-windows-x64-signed.exe",
+      "size": 149162016,
+      "sha256": "fba3e5d47f7ac01610a313ee066a34548173a49b98ec8aa5b9fae832b7fadf39",
       "platform": "windows",
       "arch": "x64",
       "kind": "installer",
@@ -17,10 +17,10 @@
       "signed": "self-signed"
     },
     {
-      "name": "qiushui-bridge-2.4.16-macos-x64-unsigned.dmg",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-macos-x64-unsigned.dmg",
-      "size": 180192359,
-      "sha256": "cfc3d3ba8707eebd100d968d57d10bea097bbac945ea94a5df8a33eb237ad34c",
+      "name": "qiushui-bridge-2.4.18-macos-x64-unsigned.dmg",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-macos-x64-unsigned.dmg",
+      "size": 180202195,
+      "sha256": "b965c3616bf3966029ec94eb511eff16b550e61480a7da937a19afc8e1996d49",
       "platform": "macos",
       "arch": "x64",
       "kind": "dmg",
@@ -29,10 +29,10 @@
       "signed": "unsigned"
     },
     {
-      "name": "qiushui-bridge-2.4.16-macos-x64-unsigned.zip",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-macos-x64-unsigned.zip",
-      "size": 173255109,
-      "sha256": "bd86016f1e9b89aa957f12411e0eb7740872d2642d41e9d2ce098a1bec8a8c17",
+      "name": "qiushui-bridge-2.4.18-macos-x64-unsigned.zip",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-macos-x64-unsigned.zip",
+      "size": 173257666,
+      "sha256": "f421df746c4d19e9f6af4b164dc69a80817f71076c90ee1c1acf1f2b58fa6e84",
       "platform": "macos",
       "arch": "x64",
       "kind": "zip",
@@ -41,10 +41,10 @@
       "signed": "unsigned"
     },
     {
-      "name": "qiushui-bridge-2.4.16-macos-arm64-unsigned.dmg",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-macos-arm64-unsigned.dmg",
-      "size": 173340298,
-      "sha256": "efa57019d1a2274ca79a4da9d94bc2ca84bfe06f15b9dc6b40ad9b7877f59ca1",
+      "name": "qiushui-bridge-2.4.18-macos-arm64-unsigned.dmg",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-macos-arm64-unsigned.dmg",
+      "size": 173345364,
+      "sha256": "44c8265876a26c66020631bb35ff7bfbb31f096858b66fee6d18ce5252d5bd92",
       "platform": "macos",
       "arch": "arm64",
       "kind": "dmg",
@@ -53,10 +53,10 @@
       "signed": "unsigned"
     },
     {
-      "name": "qiushui-bridge-2.4.16-macos-arm64-unsigned.zip",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-macos-arm64-unsigned.zip",
-      "size": 166375501,
-      "sha256": "4617d408e5356e8315911125ac54772d2d110e8e541245086ca35370a3c253dc",
+      "name": "qiushui-bridge-2.4.18-macos-arm64-unsigned.zip",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-macos-arm64-unsigned.zip",
+      "size": 166378058,
+      "sha256": "60ede5e3ef54d2a93e648c41ff5819f3f96cad340b51f8d6bdce9dcf53142efd",
       "platform": "macos",
       "arch": "arm64",
       "kind": "zip",
@@ -65,10 +65,10 @@
       "signed": "unsigned"
     },
     {
-      "name": "qiushui-bridge-2.4.16-android-universal.apk",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-android-universal.apk",
-      "size": 188854233,
-      "sha256": "77d147ef110dc5a93390eaf3b04ab1df20ab08d21cb6b3e9eab447ac0abb1336",
+      "name": "qiushui-bridge-2.4.18-android-universal.apk",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-android-universal.apk",
+      "size": 83009515,
+      "sha256": "8a26dd24c8b0d37c06adb10c93b73f64d942728e770cd9058d8c63c2e8b248b3",
       "platform": "android",
       "arch": "universal",
       "kind": "apk",
@@ -77,10 +77,10 @@
       "signed": "release"
     },
     {
-      "name": "qiushui-bridge-2.4.16-android-arm64-v8a.apk",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-android-arm64-v8a.apk",
-      "size": 67694950,
-      "sha256": "8ad34ac72f65c6bc60905fafe4d635a0a4e83ea5d04e8b6deb8192bb3aa416d0",
+      "name": "qiushui-bridge-2.4.18-android-arm64-v8a.apk",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-android-arm64-v8a.apk",
+      "size": 38966488,
+      "sha256": "2c0a54b784517e0fad9ef57c5cbb34fa0ede310aa760965247a550135a4af9b4",
       "platform": "android",
       "arch": "arm64",
       "kind": "apk",
@@ -89,10 +89,10 @@
       "signed": "release"
     },
     {
-      "name": "qiushui-bridge-2.4.16-android-armeabi-v7a.apk",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-android-armeabi-v7a.apk",
-      "size": 59926244,
-      "sha256": "c03497728aba24c154d24e67bf91cbc85c479e1c6e534d288f513484b990549d",
+      "name": "qiushui-bridge-2.4.18-android-armeabi-v7a.apk",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-android-armeabi-v7a.apk",
+      "size": 25718956,
+      "sha256": "ba281a02e7987c40d0aa6549c187104ef72b87344ecd97abf3630790479f573e",
       "platform": "android",
       "arch": "arm",
       "kind": "apk",
@@ -101,10 +101,10 @@
       "signed": "release"
     },
     {
-      "name": "qiushui-bridge-2.4.16-android-x86_64.apk",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-android-x86_64.apk",
-      "size": 70299109,
-      "sha256": "3253e933a5785b44f4d8630b2bcbb39f2c5992f0f9858018a697049ec2798484",
+      "name": "qiushui-bridge-2.4.18-android-x86_64.apk",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-android-x86_64.apk",
+      "size": 27396005,
+      "sha256": "a21ad8ca4f8fbdb66fb173b7ed2da5aa67b621af8c9282deab5b6b98b938a200",
       "platform": "android",
       "arch": "x86_64",
       "kind": "apk",
@@ -113,10 +113,10 @@
       "signed": "release"
     },
     {
-      "name": "qiushui-bridge-2.4.16-android.aab",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-android.aab",
-      "size": 72760416,
-      "sha256": "98290661fa0fc95fbd4408c81067e3152735818b4e3ccbddee4d723e41f08485",
+      "name": "qiushui-bridge-2.4.18-android.aab",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-android.aab",
+      "size": 85496067,
+      "sha256": "aa92b2e3c890653d48ad9c694a6e543a41a3de51c3cd1721ec576659040cd769",
       "platform": "android",
       "arch": "universal",
       "kind": "aab",
@@ -125,8 +125,8 @@
       "signed": "release"
     },
     {
-      "name": "qiushui-bridge-2.4.16-codesign-cert.cer",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/qiushui-bridge-2.4.16-codesign-cert.cer",
+      "name": "qiushui-bridge-2.4.18-codesign-cert.cer",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/qiushui-bridge-2.4.18-codesign-cert.cer",
       "size": 1116,
       "sha256": "53387f3977d9fedcb2989293b0509b6fdc9ff2cbfbb5879314022f29835cf0b1",
       "platform": "other",
@@ -138,9 +138,9 @@
     },
     {
       "name": "SHA256SUMS.txt",
-      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.16/SHA256SUMS.txt",
+      "url": "https://github.com/QiuShuiYuanMo/qiushui-releases/releases/download/v2.4.18/SHA256SUMS.txt",
       "size": 1207,
-      "sha256": "4b3eb7417bbd5efb66217766c04c131a13d4015ab83ae20daa3aa47b15f50dca",
+      "sha256": "8c7d317da0cf8fb80f39d1d2497561ebf6b8d110966bcf187c88d6f0e8f9dcf0",
       "platform": "other",
       "arch": "any",
       "kind": "checksums",
